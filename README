@@ -1,0 +1,6 @@
+Connect IQ "Moving Time" Data Field
+===============================================================================
+https://github.com/pcmoore/connectiq-moving_time
+
+This is a simple Connect IQ application which provides a "Moving Time" data
+field; a simple timer which increments whenever the user is moving.
