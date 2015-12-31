@@ -23,6 +23,7 @@ using Toybox.WatchUi as Ui;
 
 class MovingTimeView extends Ui.SimpleDataField {
 
+	var time_timer;
 	var time_hours;
 	var time_mins;
 	var time_secs;
@@ -41,6 +42,12 @@ class MovingTimeView extends Ui.SimpleDataField {
 	//! The given info object contains all the current workout
 	//! information. Calculate a value and return it in this method.
 	function compute(info) {
+
+		// only update if the activity is actively running
+		if (info.timerTime == null || info.timerTime == time_timer) {
+			return time_fmt;
+		}
+		time_timer = info.timerTime;
 
 		// only update the data if we are currently moving
 		if (info.currentSpeed == null || info.currentSpeed == 0) {
