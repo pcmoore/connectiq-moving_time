@@ -31,7 +31,7 @@ class MovingTimeView extends Ui.SimpleDataField {
 	//! Set the label of the data field here.
 	function initialize() {
 		SimpleDataField.initialize();
-		label = "MOVING";
+		label = Ui.loadResource(Rez.Strings.field_label);
 		time_hours = 0;
 		time_mins = 0;
 		time_secs = 0;
