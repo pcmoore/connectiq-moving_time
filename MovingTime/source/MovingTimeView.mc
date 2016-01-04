@@ -36,7 +36,7 @@ class MovingTimeView extends Ui.SimpleDataField {
 		time_hours = 0;
 		time_mins = 0;
 		time_secs = 0;
-		time_fmt = "00:00";
+		time_fmt = "0:00";
 	}
 
 	//! The given info object contains all the current workout
@@ -69,11 +69,12 @@ class MovingTimeView extends Ui.SimpleDataField {
 		}
 
 		// format the time counter into a string format
-		time_fmt = time_mins.format("%02d") + ":" +
-			   time_secs.format("%02d");
 		if (time_hours > 0) {
-			time_fmt = time_hours.format("%02d") + ":" + time_fmt;
+			time_fmt = time_hours.format("%d") +":"+ time_mins.format("%02d");
+		} else {
+			time_fmt = time_mins.format("%d");
 		}
+		time_fmt = time_fmt + ":" + time_secs.format("%02d");
 
 		return time_fmt;
 	}
